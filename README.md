@@ -71,7 +71,7 @@ This project uses machine learning, SQL, and Power BI to predict the Indian Elec
 | Total_Votes           | Integer   | Total number of votes                      |
 | Percentage_of_Votes   | Float     | Percentage of total votes received         |
 
-
+ 
 
 
 
