@@ -379,10 +379,29 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 ````
 
+### For classification report-
+
 **Precision:** The percentage of correctly identified positive results out of all the positive results predicted.
 **Recall:** The percentage of correctly identified positive results out of all the actual positive results.
 **F1-Score:** A balance between precision and recall, calculated as their harmonic mean.
 **Support:** The number of actual instances of each class in the dataset.
+
+### For confusion matrix-
+
+**Predicted Positive:** Instances the model says belong to a certain category.
+**Predicted Negative:** Instances the model says do not belong to that category.
+**Actual Positive:** Instances that truly belong to that category.
+**Actual Negative:** Instances that truly do not belong to that category.
+
+|                       | Predicted Positive | Predicted Negative |
+|-----------------------|--------------------|--------------------|
+| **Actual Positive**   | True Positive (TP) | False Negative (FN) |
+| **Actual Negative**   | False Positive (FP)| True Negative (TN)  |
+
+**True Positive (TP):** The model correctly predicts a positive instance.
+**False Negative (FN):** The model incorrectly predicts a negative instance when it is actually positive.
+**False Positive (FP):** The model incorrectly predicts a positive instance when it is actually negative.
+**True Negative (TN):** The model correctly predicts a negative instance.
 
 
 ## Logistic Regression:
