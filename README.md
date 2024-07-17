@@ -379,6 +379,10 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 ````
 
+**Precision:** The percentage of correctly identified positive results out of all the positive results predicted.
+**Recall:** The percentage of correctly identified positive results out of all the actual positive results.
+**F1-Score:** A balance between precision and recall, calculated as their harmonic mean.
+**Support:** The number of actual instances of each class in the dataset.
 
 
 ## Logistic Regression:
@@ -445,6 +449,7 @@ performance['Naive Bayes'] = accuracy_score(y_test, y_pred_nb)
 nb_matrix = confusion_matrix(y_test, y_pred_nb)
 ````
 ![image](https://github.com/user-attachments/assets/63f3c2cb-ff01-4751-a5bb-d091637e7728) ![image](https://github.com/user-attachments/assets/8e8c149f-6934-4e0a-a014-373d8ed4db18)
+
 
 
 ## Comparison of all Machine Learning Models
