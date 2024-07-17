@@ -73,6 +73,23 @@ This project uses machine learning, SQL, and Power BI to predict the Indian Elec
 
  
 
+### 
+
+#### 1. Create a view to join both tables to display all results(columns).
+
+**Query:**
+```
+CREATE VIEW FullElectionResults AS
+SELECT p.ID,p.State,p.Constituency,p.Candidate,p.Party,p.Result,v.EVM_Votes,v.Postal_Votes,v.Total_Votes,v.Percentage_of_Votes
+FROM Party_Data p
+JOIN Votes_Info v ON p.ID = v.ID;
+
+Select * from FullElectionResults;
+```
+
+**Result:**
+![image](https://github.com/user-attachments/assets/f9db1626-e285-4c9a-8d0d-6d0864dbcc7e)
+
 
 
 
