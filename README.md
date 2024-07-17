@@ -41,9 +41,6 @@ This project uses machine learning, SQL, and Power BI to predict the Indian Elec
 - **Data Visualization**: Power BI 📊
 
 
-
-# SQL
-
 ## Dataset Description: 
 
 ### Table- Party_Data
@@ -71,9 +68,10 @@ This project uses machine learning, SQL, and Power BI to predict the Indian Elec
 | Total_Votes           | Integer   | Total number of votes                      |
 | Percentage_of_Votes   | Float     | Percentage of total votes received         |
 
- 
+ <div align="center">
+  <h1>Descriptive Analysis with SQL</h1>
+</div>
 
-### 
 
 #### 1. Create a view to join both tables to display all results(columns).
 
@@ -93,9 +91,14 @@ Select * from FullElectionResults;
 
 
 
+#### 2. 
 
+**Query:**
+```
 
+```
 
+**Result:**
 
 
 
@@ -151,6 +154,9 @@ Select * from FullElectionResults;
 
 
 
+<div align="center">
+  <h1>Exploratory Data Analysis with Python</h1>
+</div>
 
 
 
@@ -196,6 +202,9 @@ Select * from FullElectionResults;
 
 
 
+<div align="center">
+  <h1>Predictive Analysis with Machine Learning Modules</h1>
+</div>
 
 
 
@@ -235,6 +244,14 @@ Select * from FullElectionResults;
 
 
 
+
+
+
+
+
+<div align="center">
+  <h1>Data Visualization with Power BI</h1>
+</div>
 
 
 
