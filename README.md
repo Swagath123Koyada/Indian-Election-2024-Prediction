@@ -364,41 +364,89 @@ plt.show()
 </div>
 
 
+## Logistic Regression:
+
+A method that predicts a yes/no outcome based on input features.
+````
+log_model = LogisticRegression(random_state=42)
+log_model.fit(X_train, y_train)
+y_pred_log = log_model.predict(X_test)
+performance['Logistic Regression'] = accuracy_score(y_test, y_pred_log)
+log_matrix = confusion_matrix(y_test, y_pred_log)
+````
+![image](https://github.com/user-attachments/assets/7b13e4f1-8b5e-4a55-9829-f99ab4919bac) ![image](https://github.com/user-attachments/assets/d1c92e29-8caf-4e3f-a457-e5b676c46c84)
+
+
+
+
+
+## Decision Tree:
+
+A model that splits the data into branches based on feature values to make predictions.
+````
+tree_model = DecisionTreeClassifier(random_state=42)
+tree_model.fit(X_train, y_train)
+y_pred_tree = tree_model.predict(X_test)
+performance['Decision Tree'] = accuracy_score(y_test, y_pred_tree)
+tree_matrix = confusion_matrix(y_test, y_pred_tree)
+````
 
 
 
 
 
 
+## Random Forest:
+
+An ensemble method that combines multiple decision trees to improve prediction accuracy and control overfitting.
+
+````
+rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_model.fit(X_train, y_train)
+y_pred_rf = rf_model.predict(X_test)
+performance['Random Forest'] = accuracy_score(y_test, y_pred_rf)
+rf_matrix = confusion_matrix(y_test, y_pred_rf)
+````
+
+
+
+
+## K-Nearest Neighbour:
+
+Classifies an item based on the most common type among its closest neighbors.
+````
+knn_model = KNeighborsClassifier()
+knn_model.fit(X_train, y_train)
+y_pred_knn = knn_model.predict(X_test)
+performance['K-Nearest Neighbors'] = accuracy_score(y_test, y_pred_knn)
+knn_matrix = confusion_matrix(y_test, y_pred_knn)
+````
 
 
 
 
 
+## Naive Bayes:
+
+A simple way to classify things using the probabilities of features, assuming they are independent.
+````
+nb_model = GaussianNB()
+nb_model.fit(X_train, y_train)
+y_pred_nb = nb_model.predict(X_test)
+performance['Naive Bayes'] = accuracy_score(y_test, y_pred_nb)
+nb_matrix = confusion_matrix(y_test, y_pred_nb)
+````
 
 
 
 
+## Comparison of all Machine Learning Models
 
 
 
+````
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+````
 
 
 
