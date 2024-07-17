@@ -363,6 +363,23 @@ plt.show()
   <h1>Predictive Analysis with Machine Learning Modules</h1>
 </div>
 
+### Feature Engineering: Correlation Analysis:
+- Including votes variables in features
+`features = election_data_ML[['EVM_Votes', 'Postal_Votes', 'Total_Votes', 'Percentage_of_Votes']]`
+- And result in target to compare
+`target = election_data_ML[['Result']]`
+
+### Split train-test data
+`X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.3, random_state=42)`
+
+### Standardization
+````
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+````
+
+
 
 ## Logistic Regression:
 
@@ -377,9 +394,6 @@ log_matrix = confusion_matrix(y_test, y_pred_log)
 ![image](https://github.com/user-attachments/assets/7b13e4f1-8b5e-4a55-9829-f99ab4919bac) ![image](https://github.com/user-attachments/assets/d1c92e29-8caf-4e3f-a457-e5b676c46c84)
 
 
-
-
-
 ## Decision Tree:
 
 A model that splits the data into branches based on feature values to make predictions.
@@ -390,10 +404,7 @@ y_pred_tree = tree_model.predict(X_test)
 performance['Decision Tree'] = accuracy_score(y_test, y_pred_tree)
 tree_matrix = confusion_matrix(y_test, y_pred_tree)
 ````
-
-
-
-
+![image](https://github.com/user-attachments/assets/774fa4b0-f781-4b28-b040-af075c15c294) ![image](https://github.com/user-attachments/assets/efcfcb3a-0cfb-406d-a961-8c50ce4fc3d4)
 
 
 ## Random Forest:
@@ -407,8 +418,7 @@ y_pred_rf = rf_model.predict(X_test)
 performance['Random Forest'] = accuracy_score(y_test, y_pred_rf)
 rf_matrix = confusion_matrix(y_test, y_pred_rf)
 ````
-
-
+![image](https://github.com/user-attachments/assets/31567ccb-2d01-4bbb-bb90-0ba6507620bb) ![image](https://github.com/user-attachments/assets/e475836c-d333-45a4-9805-610ab1dfa030)
 
 
 ## K-Nearest Neighbour:
@@ -421,9 +431,7 @@ y_pred_knn = knn_model.predict(X_test)
 performance['K-Nearest Neighbors'] = accuracy_score(y_test, y_pred_knn)
 knn_matrix = confusion_matrix(y_test, y_pred_knn)
 ````
-
-
-
+![image](https://github.com/user-attachments/assets/b4a24c19-b643-486f-a9eb-5bd5ea032247) ![image](https://github.com/user-attachments/assets/65d6931d-1749-48fb-bd79-68ad6a516643)
 
 
 ## Naive Bayes:
@@ -436,19 +444,25 @@ y_pred_nb = nb_model.predict(X_test)
 performance['Naive Bayes'] = accuracy_score(y_test, y_pred_nb)
 nb_matrix = confusion_matrix(y_test, y_pred_nb)
 ````
-
-
+![image](https://github.com/user-attachments/assets/63f3c2cb-ff01-4751-a5bb-d091637e7728) ![image](https://github.com/user-attachments/assets/8e8c149f-6934-4e0a-a014-373d8ed4db18)
 
 
 ## Comparison of all Machine Learning Models
 
+- DataFrame with Model and its accuracy - `performance_df = pd.DataFrame(list(performance.items()), columns=['Model', 'Accuracy'])`
+- Line chart to compare all the model accuracies
+- ![image](https://github.com/user-attachments/assets/5d3c5967-1252-4625-b4c1-50550cefbf28)
+- ![image](https://github.com/user-attachments/assets/06a42ac0-c610-48bd-a301-b932ed98723a)
 
+**Logistic Regression, Decision Tree, and Random Forest:**
+- Logistic Regression, Random Forest, and Decision Tree models perform very similarly with high accuracy scores around 97.7% to 97.9%.
+- These models are well-suited for classification task, indicating robust performance in predicting election outcomes based on the given features and data.
 
-````
+## Conclusion
 
-````
-
-
+- Based on our analysis of the election data, we noticed clear voting trends across different areas, particularly regarding EVM and postal votes.
+- This analysis highlighted that total votes play a crucial role in determining election outcomes.
+- Among the models evaluated, the Logistic Regression and Random Forest Model demonstrated superior predictive accuracy in forecasting election results based on available data.
 
 
 
