@@ -94,40 +94,73 @@ Select * from FullElectionResults;
 
 
 
-#### 2. 
+#### 2. Create a view, where the candidate won the election in their Constituency (value should be 'Yes' or 'No') along with all columns.
 
 **Query:**
 ```
+Create View Election_Results as
+      Select p.ID,p.State,p.Constituency,p.Candidate,p.Party,p.Result,v.EVM_Votes,v.Postal_Votes,v.Total_Votes,v.Percentage_of_Votes,
+      Case
+           When Result = 'Won' then 'Yes'
+           Else 'No'
+           End as Winning_Candidate
+           from Party_Data p
+      Join Votes_Info v ON p.ID = v.ID;
 
+       Select * from Election_Results;
 ```
 
 **Result:**
+![image](https://github.com/user-attachments/assets/82ef3405-a964-45c4-9e31-fa143077dee0)
 
 
 
 
+#### 3. Find the candidate with the highest percentage of votes in each state.
+
+**Query:**
+```
+Select e1.State, e1.Candidate, e1.Party, e1.Percentage_of_Votes from FullElectionResults e1
+      Join (
+      Select State, Max(Percentage_of_Votes) as MaxPercentage from FullElectionResults
+      Group by State
+      ) e2 on e1.State = e2.State and e1.Percentage_of_Votes = e2.MaxPercentage
+      Order by e1.State;
+```
+
+**Result**
+![image](https://github.com/user-attachments/assets/3c8d9909-1b01-458c-9301-475e15cc0024)
 
 
 
 
+#### 4. List all candidates who received more than the average total votes.
+
+**Query:**
+```
+ Select CANDIDATE, Total_Votes from FullElectionResults
+        Where Total_Votes > (Select Avg( Total_Votes ) from FullElectionResults);
+```
+
+**Result**
+![image](https://github.com/user-attachments/assets/98412256-2285-41c4-bf9f-761ca6ae7c02)
 
 
 
 
+#### 5. Find the average EVM votes per state and then list all candidates who received higher than the average EVM votes in their state.
 
+**Query:**
+```
+ Select Distinct(STATE), CANDIDATE, EVM_VOTES  from FullElectionResults A
+        Where EVM_VOTES >
+        (Select Avg(EVM_VOTES) as AVG_OF_EVM_VOTES from FullElectionResults B
+        Where A.STATE = B.STATE)
+        Order by STATE;
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
+**Result**
+![image](https://github.com/user-attachments/assets/cf428e18-d021-4bd5-b8a3-1d82729dba84)
 
 
 
